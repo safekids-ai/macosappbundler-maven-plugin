@@ -155,8 +155,11 @@ The following values can be configured:
 | `CFBundleName` | String | No | `${project.name}` | The internal name of your application. |
 | `CFBundleShortVersionString` | String | No | `${version}` | The version of your application. |
 | `CFBundleExecutable` | String | No | `JavaLauncher` | The name of the executable within the application bundle. No regular user will ever see this but you may want to change it for debugging purposes when analyzing your application. |
+| `CFBundlePackageType` | String | No | `APPL` | Package type of the application bundle. |
+| `CFBundleInfoDictionaryVersion` | String | No | `6.0` | Version of Info.plist. |
 | `CFBundleDevelopmentRegion` | String | No | `English` | The default language and region for the bundle, as a [language ID](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html). |
 | `CFBundleURLTypes` | Array of Strings | No | | A list of URL schemes (`http`, `ftp`, etc.) supported by the app. |
+| `CFBundleSupportedPlatforms` | Array of Strings | No | | A list of supported platforms by the app. |
 | `JVMMainClassName` | String | Yes (if the application is a classic classpath based application) | | The main class whose `main` method should be invoked when starting your application. |
 | `JVMMainModuleName` | String | Yes (if the application is a module based application) | | The main module that should be invoked when starting your application. |
 | `JVMVersion` | String | No | | The Java version your application needs to work. Can either be an explicit version String like `11.0.1`, a major version like `11` (signalizing that *any* Java 11 runtime is sufficient) or a value like `11+` (signalizing that *any* Java 11 *or higher* runtime is sufficient). |

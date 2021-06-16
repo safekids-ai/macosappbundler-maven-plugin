@@ -55,7 +55,16 @@ public class PlistConfiguration {
     public String CFBundleExecutable = null;
 
     @Parameter
+    public String CFBundlePackageType = null;
+
+    @Parameter
+    public String CFBundleInfoDictionaryVersion = null;
+
+    @Parameter
     public List<String> CFBundleURLTypes = null;
+
+    @Parameter
+    public List<String> CFBundleSupportedPlatforms = null;
 
     @Parameter
     public String CFBundleDevelopmentRegion = null;
@@ -110,11 +119,14 @@ public class PlistConfiguration {
         Element dictElement = document.createElement("dict");
         this.appendKeyWithString(dictElement, document, "CFBundleDisplayName", this.CFBundleDisplayName);
         this.appendKeyWithString(dictElement, document, "CFBundleExecutable", this.CFBundleExecutable);
+        this.appendKeyWithString(dictElement, document, "CFBundlePackageType", this.CFBundlePackageType);
+        this.appendKeyWithString(dictElement, document, "CFBundleInfoDictionaryVersion", this.CFBundleInfoDictionaryVersion);
         this.appendKeyWithString(dictElement, document, "CFBundleIdentifier", this.CFBundleIdentifier);
         this.appendKeyWithString(dictElement, document, "CFBundleName", this.CFBundleName);
         this.appendKeyWithString(dictElement, document, "CFBundleShortVersionString", this.CFBundleShortVersionString);
         this.appendKeyWithString(dictElement, document, "CFBundleDevelopmentRegion", this.CFBundleDevelopmentRegion);
         this.appendCFBundleURLTypes(dictElement, document, this.CFBundleURLTypes);
+        this.appendCFBundleSupportedPlatforms(dictElement, document, this.CFBundleSupportedPlatforms);
         this.appendKeyWithArrayOfStrings(dictElement, document, "JVMArguments", this.JVMArguments);
         this.appendKeyWithString(dictElement, document, "JVMMainClassName", this.JVMMainClassName);
         this.appendKeyWithString(dictElement, document, "JVMMainModuleName", this.JVMMainModuleName);
@@ -181,6 +193,12 @@ public class PlistConfiguration {
             this.appendKeyWithArrayOfStrings(arrayDictElement, document, "CFBundleURLSchemes", value);
             arrayElement.appendChild(arrayDictElement);
             dictElement.appendChild(arrayElement);
+        }
+    }
+
+    private void appendCFBundleSupportedPlatforms(Element dictElement, Document document, List<String> value) {
+        if (value != null && !value.isEmpty()) {
+            this.appendKeyWithArrayOfStrings(dictElement, document, "CFBundleSupportedPlatforms", value);
         }
     }
 

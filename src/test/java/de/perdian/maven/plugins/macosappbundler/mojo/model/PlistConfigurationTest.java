@@ -36,6 +36,10 @@ public class PlistConfigurationTest {
             "        <string>Test bundle display name</string>\n" +
             "        <key>CFBundleExecutable</key>\n" +
             "        <string>JavaLauncher</string>\n" +
+            "        <key>CFBundlePackageType</key>\n" +
+            "        <string>APPL</string>\n" +
+            "        <key>CFBundleInfoDictionaryVersion</key>\n" +
+            "        <string>6.0</string>\n" +
             "        <key>CFBundleIdentifier</key>\n" +
             "        <string>com.test.bundle</string>\n" +
             "        <key>CFBundleName</key>\n" +
@@ -55,6 +59,10 @@ public class PlistConfigurationTest {
             "                </array>\n" +
             "            </dict>\n" +
             "        </array>\n" +
+            "        <key>CFBundleSupportedPlatforms</key>\n" +
+            "        <array>\n" +
+		    "            <string>MacOSX</string>\n" +
+	        "        </array>\n" +
             "        <key>JVMMainClassName</key>\n" +
             "        <string>com.test.bundle.main</string>\n" +
             "        <key>JVMMainModuleName</key>\n" +
@@ -85,10 +93,13 @@ public class PlistConfigurationTest {
         plist.CFBundleIdentifier = StringUtils.defaultIfEmpty(plist.CFBundleIdentifier, "com.test.bundle");
         plist.CFBundleShortVersionString = StringUtils.defaultIfEmpty(plist.CFBundleShortVersionString, "1.0.0");
         plist.CFBundleExecutable = StringUtils.defaultIfEmpty(plist.CFBundleExecutable, "JavaLauncher");
+        plist.CFBundlePackageType = StringUtils.defaultIfEmpty(plist.CFBundlePackageType, "APPL");
+        plist.CFBundleInfoDictionaryVersion = StringUtils.defaultIfEmpty(plist.CFBundleInfoDictionaryVersion, "6.0");
         plist.CFBundleDevelopmentRegion = StringUtils.defaultIfEmpty(plist.CFBundleDevelopmentRegion, "English");
         plist.JVMMainClassName = StringUtils.defaultIfEmpty(plist.JVMMainClassName, "com.test.bundle.main");
         plist.JVMMainModuleName = StringUtils.defaultIfEmpty(plist.JVMMainModuleName, "com.test.bundle.module.main");
         plist.CFBundleURLTypes = Arrays.asList("xxx", "yyy", "zzz");
+        plist.CFBundleSupportedPlatforms = Arrays.asList("MacOSX");
         return plist;
     }
 }
