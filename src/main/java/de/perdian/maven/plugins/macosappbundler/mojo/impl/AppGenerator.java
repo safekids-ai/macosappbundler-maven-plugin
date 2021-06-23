@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.nio.file.StandardCopyOption;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -93,7 +94,7 @@ public class AppGenerator {
                 for (Map.Entry<String, String> mappedFile : mappedFiles.entrySet()){
                     File sourceFile = new File(fileSetDirectory, mappedFile.getKey());
                     File targetFile = new File(outputDirectory, mappedFile.getKey());
-                    FileUtils.copyFile(sourceFile, targetFile);
+                    FileUtils.copyFile(sourceFile, targetFile, true, StandardCopyOption.COPY_ATTRIBUTES);
                 }
             }
         } catch (Exception e) {

@@ -43,6 +43,7 @@
         <junit.version>5.7.1</junit.version>
         <maven.version>3.6.0</maven.version>
         <maven.annotations.version>3.6.0</maven.annotations.version>
+        <commons.io.verion>2.9.0</commons.io.verion>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compile-native-executable.skip>false</maven.compile-native-executable.skip>
@@ -133,6 +134,11 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons.io.verion}</version>
         </dependency>
     </dependencies>
 
